@@ -64,6 +64,7 @@ with th.no_grad():
                     min_ind = i * args.batch_size
                     max_ind = (i + 1) * args.batch_size
                     video_batch = video[min_ind:max_ind].cuda()
+                    print(video_batch.shape)
                     batch_features = model(video_batch)
                     if args.l2_normalize:
                         batch_features = F.normalize(batch_features, dim=1)
